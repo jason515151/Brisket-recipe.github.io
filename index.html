@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Make Brisket — The Ultimate Recipe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0c0e14;--surface:#151821;--surface-2:#1c2030;--border:#2a2e42;--text:#e2e6f0;--text-muted:#8892b0;--accent:#e87a3e;--accent-glow:rgba(232,122,62,0.15);--green:#3ddc84;--radius:12px;--radius-sm:8px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(12,14,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:800px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1.1rem;color:var(--text)}
+.nav-logo-icon{font-size:1.4rem}
+.nav-logo .accent{color:var(--accent)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+
+/* Hero */
+.hero{padding:80px 24px 60px;text-align:center;background:radial-gradient(ellipse 600px 400px at 50% 0%,var(--accent-glow),transparent)}
+.hero-badge{display:inline-block;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:20px}
+.hero-badge span{color:var(--green)}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-1.5px;line-height:1.15}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--accent),#f0a060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:var(--text-muted);max-width:600px;margin:16px auto 0}
+.hero-stats{display:flex;gap:32px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:1.6rem;font-weight:800;color:var(--accent)}
+.hero-stat-label{font-size:0.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px}
+
+/* Sections */
+section{padding:64px 0}
+.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:6px}
+.section-title{font-size:1.8rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:8px}
+.section-sub{color:var(--text-muted);font-size:1.05rem;margin-bottom:32px;max-width:640px}
+
+/* Card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;transition:border-color 0.2s}
+.card:hover{border-color:rgba(232,122,62,0.3)}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p,.card li{font-size:0.92rem;color:var(--text-muted);line-height:1.6}
+.card ul{padding-left:20px;color:var(--text-muted);font-size:0.92rem;line-height:1.8}
+.card ul li strong{color:var(--text)}
+
+/* Two column */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr}}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;padding:0 0 28px 20px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item h3{font-size:1rem;font-weight:600;margin-bottom:4px}
+.timeline-item .time{font-size:0.8rem;color:var(--accent);font-weight:600;margin-bottom:4px}
+.timeline-item p,.timeline-item li{font-size:0.9rem;color:var(--text-muted);line-height:1.6}
+.timeline-item ul{padding-left:18px;margin-top:4px}
+.timeline-item ul li{margin-bottom:2px}
+
+/* Table */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px}
+table{width:100%;border-collapse:collapse;font-size:0.9rem}
+th{background:var(--surface-2);padding:12px 16px;text-align:left;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted)}
+td{padding:12px 16px;border-top:1px solid var(--border)}
+tr:hover td{background:var(--surface-2)}
+
+/* Tip box */
+.tip-box{background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:20px;margin:24px 0;border-left:4px solid var(--accent)}
+.tip-box h3{font-size:0.95rem;font-weight:600;margin-bottom:6px;color:var(--accent)}
+.tip-box p,.tip-box li{font-size:0.9rem;color:var(--text-muted);line-height:1.6}
+
+/* Quote */
+blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:24px 0;background:var(--surface);border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-style:italic;color:var(--text-muted);font-size:0.95rem}
+
+/* Img placeholder */
+.img-placeholder{width:100%;height:240px;background:var(--surface-2);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:24px;border:1px solid var(--border);overflow:hidden}
+.img-placeholder span{opacity:0.6}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-muted);font-size:0.85rem}
+
+@media(max-width:600px){
+.hero{padding:48px 16px 40px}
+section{padding:40px 0}
+.nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="nav-inner">
+<a href="#" class="nav-logo"><span class="nav-logo-icon">🥩</span><span>Brisket<span class="accent">Lab</span></span></a>
+<div class="nav-links">
+<a href="#intro">Overview</a>
+<a href="#prep">Prep</a>
+<a href="#cook">Cook</a>
+<a href="#rest">Rest & Serve</a>
+<a href="#tips">Pro Tips</a>
+</div>
+</div>
+</nav>
+
+<header class="hero">
+<div class="hero-badge">🔥 <span>Texan-Style</span> — Low & Slow</div>
+<h1><span class="highlight">How to Make Brisket</span><br>The Definitive Guide</h1>
+<p>From selecting the perfect cut to slicing that smoky, tender masterpiece — everything you need to know about cooking beef brisket like a pitmaster.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="hero-stat-num">14-20</div><div class="hero-stat-label">Hours Total</div></div>
+<div class="hero-stat"><div class="hero-stat-num">225°F</div><div class="hero-stat-label">Cook Temp</div></div>
+<div class="hero-stat"><div class="hero-stat-num">203°F</div><div class="hero-stat-label">Target Internal</div></div>
+<div class="hero-stat"><div class="hero-stat-num">★★★</div><div class="hero-stat-label">Difficulty</div></div>
+</div>
+</header>
+
+<div class="container">
+
+<!-- ═══ INTRO ═══ -->
+<section id="intro">
+<div class="section-label">Introduction</div>
+<h2 class="section-title">What You're Making</h2>
+<p class="section-sub">Texas-style smoked beef brisket — a bark-coated, smoke-ringed, melt-in-your-mouth masterpiece. This is the king of barbecue.</p>
+
+<div class="img-placeholder"><span>🥩🔥</span></div>
+
+<div class="grid-2">
+<div class="card">
+<h3>📋 What You Need</h3>
+<ul>
+<li><strong>Brisket</strong> — 12-16 lb whole packer (point + flat)</li>
+<li><strong>Smoker</strong> — offset, pellet, kamado, or kettle</li>
+<li><strong>Wood</strong> — oak, hickory, pecan, or mesquite</li>
+<li><strong>Rub</strong> — coarse salt + coarse black pepper (50/50)</li>
+<li><strong>Spritz</strong> — apple juice or apple cider vinegar</li>
+<li><strong>Thermometer</strong> — leave-in probe + instant-read</li>
+<li><strong>Butcher paper</strong> — unwaxed, for the wrap</li>
+<li><strong>Patience</strong> — the most important ingredient</li>
+</ul>
+</div>
+<div class="card">
+<h3>🥩 Choosing Your Brisket</h3>
+<ul>
+<li><strong>Grade:</strong> USDA Prime or Wagyu for best results. Choice works too.</li>
+<li><strong>Size:</strong> 12-16 lbs is ideal. Bigger = more forgiving.</li>
+<li><strong>Trim:</strong> Leave 1/4" fat cap. Remove hard fat. Square it up.</li>
+<li><strong>Feel:</strong> Should be flexible, not stiff. Good marbling throughout.</li>
+<li><strong>Fresh:</strong> Not frozen if possible. If frozen, thaw 3-5 days in fridge.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ═══ PREP ═══ -->
+<section id="prep">
+<div class="section-label">Step 1</div>
+<h2 class="section-title">Preparation</h2>
+<p class="section-sub">Do this the night before. Good prep makes perfect brisket.</p>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="time">🌙 12+ hours before cook</div>
+<h3>Trim the brisket</h3>
+<ul>
+<li>Flip fat-side down. Trim fat cap to 1/4" uniform thickness.</li>
+<li>Remove the hard fat seam between point and flat.</li>
+<li>Square off ragged edges — they'll burn.</li>
+<li>Flip over. Remove silver skin from the meat side.</li>
+<li>Shape it aerodynamic — rounded edges, no sharp corners.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="time">🌙 12+ hours before cook</div>
+<h3>Season (the 50/50 rub)</h3>
+<ul>
+<li><strong>16 mesh black pepper</strong> — 1 part</li>
+<li><strong>Coarse kosher salt</strong> — 1 part</li>
+<li>Optional: garlic powder, paprika, cayenne (go easy)</li>
+<li>Apply generously — it should look like sandy beach, not bare skin.</li>
+<li>Pat it in. Don't rub it off. Let it adhere.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="time">🌙 12+ hours before cook</div>
+<h3>Rest in fridge (uncovered)</h3>
+<p>Place brisket on a wire rack over a sheet tray. Leave uncovered in the fridge overnight. This dries the surface — <strong>dry surface = better bark</strong>.</p>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 1 hour before smoke</div>
+<h3>Bring to temp</h3>
+<p>Pull brisket from fridge 1 hour before it goes on the smoker. Let it start warming up. Meanwhile, get your smoker running.</p>
+</div>
+</div>
+</section>
+
+<!-- ═══ COOK ═══ -->
+<section id="cook">
+<div class="section-label">Step 2</div>
+<h2 class="section-title">The Cook</h2>
+<p class="section-sub">Low and slow. Don't rush it. Don't peek too much.</p>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="time">🔥 0:00 — Fire up</div>
+<h3>Get the smoker to 225°F</h3>
+<ul>
+<li>Use oak, hickory, or pecan for the fuel/wood chunks.</li>
+<li>Stabilize temp at 225°F before the brisket goes on.</li>
+<li>Thin blue smoke — not thick white smoke.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 0:30 — Brisket on</div>
+<h3>Place fat-side down (or up — debate rages)</h3>
+<ul>
+<li>Fat-side toward the heat source.</li>
+<li>Insert leave-in probe into the thickest part of the flat.</li>
+<li>Close the lid. Don't open it for at least 3 hours.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 3:00 — First spritz</div>
+<h3>Spritz with apple juice every 45-60 min</h3>
+<p>Light mist. Don't soak it. This adds flavor and keeps the surface from drying out before the bark sets.</p>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 ~8:00 — The Stall (165°F-170°F)</div>
+<h3>The stall is normal. Do not panic.</h3>
+<p>Internal temp will plateau as moisture evaporates. This can last 1-4 hours. <strong>Do not crank up the heat.</strong> Let it ride. This is where collagen breaks down into gelatin.</p>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 ~165°F-170°F — The Wrap</div>
+<h3>Wrap in butcher paper</h3>
+<ul>
+<li>Lay out a 3-foot sheet of unwaxed butcher paper.</li>
+<li>Place brisket in the center. Fold one side over, then the other.</li>
+<li>Roll it tight like a burrito. Tuck the ends.</li>
+<li>Probe back through the paper into the flat.</li>
+<li><strong>Why wrap:</strong> It pushes through the stall faster, retains moisture, and the paper breathes so bark stays firm.</li>
+</ul>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 ~195°F — Probe test</div>
+<h3>Start checking for tenderness</h3>
+<p>Insert a probe into the flat. It should slide in like room-temp butter — <strong>zero resistance</strong>. If it's still a little tight, wait. Every brisket is different.</p>
+</div>
+<div class="timeline-item">
+<div class="time">🔥 200°F-205°F — Done</div>
+<h3>Target internal temp: 203°F in the flat</h3>
+<p>The point will be a bit hotter — that's fine. When the probe slides in like butter, it's done. <strong>Do not cook to just a number</strong> — cook to tenderness. But 203°F is your target range.</p>
+</div>
+</div>
+
+<div class="tip-box">
+<h3>⏱️ Typical Timeline (14-20 lbs @ 225°F)</h3>
+<table>
+<tr><th>Phase</th><th>Time</th><th>Internal Temp</th></tr>
+<tr><td>Smoke unwrapped</td><td>~8 hours</td><td>165-170°F</td></tr>
+<tr><td>Wrapped</td><td>~4-6 hours</td><td>170-203°F</td></tr>
+<tr><td>Rest</td><td>2-4 hours</td><td>Hold above 140°F</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>14-18 hours</strong></td><td></td></tr>
+</table>
+</div>
+</section>
+
+<!-- ═══ REST & SERVE ═══ -->
+<section id="rest">
+<div class="section-label">Step 3</div>
+<h2 class="section-title">Rest & Serve</h2>
+<p class="section-sub">This step is not optional. Resting is as important as the cook.</p>
+
+<div class="grid-2">
+<div class="card">
+<h3>🧊 Rest (2-4 hours minimum)</h3>
+<ul>
+<li>Wrap the brisket in a fresh sheet of butcher paper.</li>
+<li>Wrap again in plastic wrap or place in a disposable foil pan.</li>
+<li>Wrap the whole thing in a towel.</li>
+<li>Place in a <strong>cooler</strong> (no ice) — this is a faux cambro.</li>
+<li>It will stay hot for 4+ hours.</li>
+<li>This relaxes the meat and redistributes juices.</li>
+</ul>
+</div>
+<div class="card">
+<h3>🔪 Slicing</h3>
+<ul>
+<li>Find the grain direction on the flat (it changes at the point).</li>
+<li>Separate the point from the flat at the fat seam.</li>
+<li>Slice the flat <strong>against the grain</strong> in pencil-thick slices.</li>
+<li>Slice the point against its grain — or cube it for burnt ends.</li>
+<li><strong>Pro move:</strong> slice only what you'll eat immediately.</li>
+</ul>
+</div>
+</div>
+
+<blockquote>"The difference between good brisket and great brisket is the rest. Don't skip it." — every pitmaster ever</blockquote>
+</section>
+
+<!-- ═══ TIPS ═══ -->
+<section id="tips">
+<div class="section-label">Pro Tips</div>
+<h2 class="section-title">Pitmaster Secrets</h2>
+
+<div class="tip-box">
+<h3>🔥 Fire Management</h3>
+<ul>
+<li>Stabilize at 225°F <strong>before</strong> the meat goes on.</li>
+<li>Small, frequent adjustments beat big swings.</li>
+<li>Keep your wood chunks dry. Store them inside.</li>
+<li>Clean ash every 4-6 hours for clean airflow.</li>
+<li>Use a water pan in the smoker for thermal mass and humidity.</li>
+</ul>
+</div>
+
+<div class="tip-box">
+<h3>🥩 Bark Building</h3>
+<ul>
+<li>Dry surface = good bark. Don't spritz too early (wait 3+ hours).</li>
+<li>The 50/50 rub is classic for a reason. Don't overcomplicate it.</li>
+<li>Mustard or hot sauce as a binder? Optional. The salt draws out moisture and the rub sticks anyway.</li>
+<li>If the bark is perfect but not done cooking yet, <strong>wrap in paper</strong> — this stops the bark from getting any darker.</li>
+</ul>
+</div>
+
+<div class="tip-box">
+<h3>🚫 Common Mistakes</h3>
+<ul>
+<li><strong>Cooking to temp, not tenderness.</strong> 203°F is a target, not a rule.</li>
+<li><strong>Slicing too early.</strong> The meat needs to rest. 2 hours minimum. 4 is better.</li>
+<li><strong>Slicing with the grain.</strong> It'll be shoe leather. Always against the grain.</li>
+<li><strong>Opening the smoker too much.</strong> Every peek costs 10-15 minutes of cook time.</li>
+<li><strong>Not trimming enough.</strong> Hard fat doesn't render. Cut it out.</li>
+<li><strong>Using too much smoke.</strong> Thin blue smoke. White smoke = creosote = bitter brisket.</li>
+</ul>
+</div>
+
+<div class="tip-box">
+<h3>🍖 Leftovers (if you have any)</h3>
+<ul>
+<li><strong>Burnt ends</strong> — cube the point, sauce it, back on the smoker for 1 hour.</li>
+<li><strong>Brisket tacos</strong> — chop leftovers, warm with salsa verde.</li>
+<li><strong>Brisket hash</strong> — dice with potatoes, onions, peppers. Fry in a cast iron.</li>
+<li><strong>Freeze</strong> — vacuum seal sliced brisket with a splash of beef broth.</li>
+</ul>
+</div>
+
+<div class="card" style="margin-top:24px">
+<h3>📏 Temperature Guide Summary</h3>
+<table>
+<tr><th>Stage</th><th>Internal Temp</th><th>What's Happening</th></tr>
+<tr><td>Raw</td><td>34-40°F</td><td>Straight from fridge</td></tr>
+<tr><td>Surface dried</td><td>~50°F</td><td>After 1 hour on counter</td></tr>
+<tr><td>Smoke begins</td><td>~60°F</td><td>Goes on the smoker</td></tr>
+<tr><td>Bark sets</td><td>140-160°F</td><td>Surface dries, color deepens</td></tr>
+<tr><td>The Stall</td><td>165-170°F</td><td>Evaporative cooling plateau</td></tr>
+<tr><td>Collagen break</td><td>180-195°F</td><td>Tough connective tissue renders</td></tr>
+<tr><td>Probe tender</td><td>200-205°F</td><td>Butter-like slide. Done.</td></tr>
+<tr><td>Resting</td><td>140-150°F+</td><td>Juices redistribute in cooler</td></tr>
+<tr><td>Serve</td><td>130-140°F+</td><td>Slice and enjoy immediately</td></tr>
+</table>
+</div>
+</section>
+
+</div>
+
+<footer>
+<div class="container">
+<p>🥩 BrisketLab · Low & Slow · © 2026</p>
+<p class="footer-tagline">"If you're lookin', you ain't cookin'"</p>
+</div>
+</footer>
+
+</body>
+</html>
